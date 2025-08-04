@@ -134,8 +134,7 @@ const BonziSprites = {
     colors: [
         "purple", "blue", "red", "green", "pink", 
         "black", "brown", 
-        "orange", "yellow", "white","king","jew"
-        ,"jabba","floyd","ronnie","peedy"
+        "orange", "yellow", "white","peedy"
         ],
 
     load(callback) {
@@ -1057,12 +1056,6 @@ var _createClass = (function () {
                                         callback: function () {
                                             window._bonziSocket.emit("command", { list: ["owo", d.userPublic.name] });
                                         },
-                                    },
-                                    nigger: {
-                                        name: "Niggerify",
-                                        callback: function () {
-                                            window._bonziSocket.emit("talk", { text: d.userPublic.name + " stop being a nigger" });
-                                        }
                                     },
                                     pastule: {
                                         name: "Pastule",
