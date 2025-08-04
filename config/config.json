@@ -1,0 +1,22 @@
+{
+  "port":80,
+  "godword":"onlyfoolsrushinasshole",
+  "kingword":"bwnzikwnzi",
+  "higher_kingword":"bwnzikwnzi",
+  "altlimit": 5,
+  "slowmode": 1000,
+  "namelimit": 25,
+  "charlimit": 2500,
+  "whitelisted_image_hosts": [
+    "i.imgbb.com",
+    "files.catbox.moe",
+    "litter.catbox.moe",
+    "catbox.moe",
+    "i.imgflip.com"
+  ],
+  "version": "1.0.0 BETA",
+  "room_defaults":{
+    "public":true,
+    "owner":"Xeno789"
+  }
+}
