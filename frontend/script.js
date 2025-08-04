@@ -1892,7 +1892,7 @@ var _createClass = (function () {
                 { type: "text", text: "Mute me then. That's your fucking problem." },
             ],
             [
-                { type: "text", text: "Hey niggers prepare for a joke." },
+                { type: "text", text: "Hey folks prepare for a joke." },
             ],
             [
                 { type: "text", text: "Time to make fun of homophobic people." },
