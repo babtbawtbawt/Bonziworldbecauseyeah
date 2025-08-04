@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>BonziWORLD Official</title>
-	<meta charset="utf-8"/>
-	<meta name="description" content="Welcome to Official BonziWORLD! Join a fun community based around BonziBUDDY without any rules! Chat, joke, share media and more!"/>
+  <title>BonziWORLD Official</title>
+  <meta charset="utf-8"/>
+  <meta name="description" content="Welcome to Official BonziWORLD! Join a fun community based around BonziBUDDY without any rules! Chat, joke, share media and more!"/>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-	<meta name="mobile-web-app-capable" content="yes"/>
-	<meta name="thumbnail" content="./download.jpg"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="thumbnail" content="./download.jpg"/>
 
-	<link rel="stylesheet" id="stylesheet" type="text/css" href="style.css">
-	<link rel="icon" type="image/png" href="img/favicon.png" sizes="32x32">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="lib/easeljs.min.js"></script>
-	<script src="lib/preloadjs-0.6.2.min.js"></script>
-	<script src="lib/jquery.min.js"></script>
-	<script src="lib/seedrandom.min.js"></script>
-	<script src="lib/socket.io-1.4.5.js"></script>
-	<script src="lib/speakjs/speakClient.js"></script>
-	<script src="lib/jquery.contextMenu.min.js"></script>
-	<script src="https://kit.fontawesome.com/7eb4dccc86.js" crossorigin="anonymous"></script>
-	<script src="script.js"></script>
+  <link rel="stylesheet" id="stylesheet" type="text/css" href="style.css">
+  <link rel="icon" type="image/png" href="img/favicon.png" sizes="32x32">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="lib/easeljs.min.js"></script>
+  <script src="lib/preloadjs-0.6.2.min.js"></script>
+  <script src="lib/jquery.min.js"></script>
+  <script src="lib/seedrandom.min.js"></script>
+  <script src="lib/socket.io-1.4.5.js"></script>
+  <script src="lib/speakjs/speakClient.js"></script>
+  <script src="lib/jquery.contextMenu.min.js"></script>
+  <script src="https://kit.fontawesome.com/7eb4dccc86.js" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
 
   <script>
         var show = false;
@@ -149,9 +149,9 @@ background-color: #403060;
   background: #ffffe1;
   transform:translateY(-100%);
   font-size: 11px;
-	color: #000;
+  color: #000;
 }
-        
+
 .bonzi_name {
     z-index:0;
 }
@@ -171,11 +171,11 @@ background-color: #403060;
         90%{color: #FF00FF;}
         100%{color: red;}
     }
-	
+
 </style>
 </head>
 <body>
-	<div id="content">
+  <div id="content">
         <div id="bghold"></div>
 <button id="logshow" style="position:fixed;padding:5px 9px;top:3px;left:3px;font-family:arial;background-color:#502570;border-radius:4px;box-shadow:inset 0px 0px 1px 2px rgba(0,0,0,0.3);background-image:radial-gradient(circle at top left,rgba(255,255,255,0.6),rgba(0,0,0,0) 50%);border:1px solid white;color:white;z-index:1001;cursor:pointer;display:none;" onclick="showtoggle()"><i class="fa fa-navicon" aria-hidden="true"></i></button>
 <div id="log" style="display:none;">
@@ -186,150 +186,221 @@ background-color: #403060;
 </div>
 </div>
 </div>
-		<div id="themes_button">
-			<img src="img/themes.png" alt="Themes" title="Themes">
-		</div>
+    <div id="themes_button">
+      <img src="img/themes.png" alt="Themes" title="Themes">
+    </div>
 
-		<div id="themes_menu" class="page" style="display:none">
-			<div class="themes_container">
-				<div class="themes_header">
-					<h2>Themes</h2>
-					<button id="themes_close">×</button>
-				</div>
-				<div class="themes_grid">
-					<div class="theme_card" data-theme="default">
-						<div class="theme_preview default_preview"></div>
-						<div class="theme_name">Default</div>
-					</div>
-					<div class="theme_card" data-theme="vaporwave">
-						<div class="theme_preview vaporwave_preview"></div>
-						<div class="theme_name">Vaporwave</div>
-					</div>
-					<div class="theme_card" data-theme="dark">
-						<div class="theme_preview dark_preview"></div>
-						<div class="theme_name">Dark mode</div>
-					</div>
-					<div class="theme_card" data-theme="hue">
-						<div class="theme_preview hue_preview"></div>
-						<div class="theme_name">Hue rotate</div>
-					</div>
-					<div class="theme_card" data-theme="retro">
-						<div class="theme_preview retro_preview"></div>
-						<div class="theme_name">Retro</div>
-					</div>
-					<div class="theme_card" data-theme="neon">
-						<div class="theme_preview neon_preview"></div>
-						<div class="theme_name">Neon</div>
-					</div>
-				</div>
-				<div class="themes_footer">
-					<button id="themes_exit">Exit</button>
-				</div>
-			</div>
-		</div>
+    <div id="games_button">
+      <img src="img/games.png" alt="Games" title="Games">
+    </div>
 
-		<div id="room_info">
-			<span>Room ID - <span class="room_id">???</span></span><br>
-			<span id="room_public">This room is public.</span>
-			<span id="room_private">This room is private.</span><br>
-			<span id="add" style="display: none;">Alt Limit: ???</span>
-			<span id="memcount">Member Count: ???</span>
-			<span id="room_owner"><br>You are the owner of this room.</span><br>
-			<span id="desanitize" style="display: none;">HTML is allowed in this room. Join at your own risk.</span>
-		</div>
+    <div id="themes_menu" class="page" style="display:none">
+      <div class="themes_container">
+        <div class="themes_header">
+          <h2>Themes</h2>
+          <button id="themes_close">×</button>
+        </div>
+        <div class="themes_grid">
+          <div class="theme_card" data-theme="default">
+            <div class="theme_preview default_preview"></div>
+            <div class="theme_name">Default</div>
+          </div>
+          <div class="theme_card" data-theme="vaporwave">
+            <div class="theme_preview vaporwave_preview"></div>
+            <div class="theme_name">Vaporwave</div>
+          </div>
+          <div class="theme_card" data-theme="dark">
+            <div class="theme_preview dark_preview"></div>
+            <div class="theme_name">Dark mode</div>
+          </div>
+          <div class="theme_card" data-theme="hue">
+            <div class="theme_preview hue_preview"></div>
+            <div class="theme_name">Hue rotate</div>
+          </div>
+          <div class="theme_card" data-theme="retro">
+            <div class="theme_preview retro_preview"></div>
+            <div class="theme_name">Retro</div>
+          </div>
+          <div class="theme_card" data-theme="neon">
+            <div class="theme_preview neon_preview"></div>
+            <div class="theme_name">Neon</div>
+          </div>
+        </div>
+        <div class="themes_footer">
+          <button id="themes_exit">Exit</button>
+        </div>
+      </div>
+    </div>
 
-		<canvas id="bonzi_canvas" width="100" height="100" style="will-change: transform;"></canvas>
-		
-		<table id="chat_bar"><tr>
-			<td id="chat_send">send</td>
-			<td id="chat_message_cont" style="padding:1px;"><input id="chat_message" type="text" placeholder="Enter a message" style="left:-5px;height:66%;position:relative;font-size:17px;top:0px;padding:3px;border-radius:5px;"></td>
-			<td id="chat_tray">
-				<div id="btn_tile" class="tray_btn"></div>
-			</td>
-		</tr></table>
+    <div id="games_menu" class="page" style="display:none">
+      <div class="games_container">
+        <div class="games_header">
+          <h2>Games</h2>
+          <button id="games_close">×</button>
+        </div>
+        <div class="games_pagination">
+          <button id="prev_page" disabled>← Previous</button>
+          <span id="page_indicator">Page 1 of 3</span>
+          <button id="next_page">Next →</button>
+        </div>
+        <div id="games_list" class="games_grid">
+          <!-- Page 1 Games -->
+          <div class="game_card page-1" data-url="https://flappybird.io/">
+            <div class="game_preview flappy_preview">Flappy Bird</div>
+            <div class="game_name">Flappy Bird</div>
+          </div>
+          <div class="game_card page-1" data-url="https://yell0wsuit.page/assets/games/angry-birds-chrome/index.html">
+            <div class="game_preview angry_preview">Angry Birds</div>
+            <div class="game_name">Angry Birds Chrome</div>
+          </div>
+          <div class="game_card page-1" data-url="https://x8bitrain.github.io/webXash/">
+            <div class="game_preview halflife_preview">Half Life</div>
+            <div class="game_name">Half Life</div>
+          </div>
+          <div class="game_card page-1" data-url="https://isle.pizza/">
+            <div class="game_preview lego_preview">Lego Island</div>
+            <div class="game_name">Lego Island</div>
+          </div>
+          <div class="game_card page-1" data-url="https://irv77.github.io/hd_fnaf/1/">
+            <div class="game_preview fnaf1_preview">FNAF 1</div>
+            <div class="game_name">Five Nights at Freddy's</div>
+          </div>
+          
+          <!-- Page 2 Games -->
+          <div class="game_card page-2" data-url="https://irv77.github.io/hd_fnaf/2/" style="display:none;">
+            <div class="game_preview fnaf2_preview">FNAF 2</div>
+            <div class="game_name">Five Nights at Freddy's 2</div>
+          </div>
+          <div class="game_card page-2" data-url="https://irv77.github.io/hd_fnaf/3/" style="display:none;">
+            <div class="game_preview fnaf3_preview">FNAF 3</div>
+            <div class="game_name">Five Nights at Freddy's 3</div>
+          </div>
+          <div class="game_card page-2" data-url="https://irv77.github.io/hd_fnaf/4/" style="display:none;">
+            <div class="game_preview fnaf4_preview">FNAF 4</div>
+            <div class="game_name">Five Nights at Freddy's 4</div>
+          </div>
+          
+          <!-- Page 3 Games -->
+          <div class="game_card page-3" data-url="https://irv77.github.io/hd_fnaf/ps/" style="display:none;">
+            <div class="game_preview fnafps_preview">FNAF PS</div>
+            <div class="game_name">FNAF Pizzeria Simulator</div>
+          </div>
+        </div>
+        <div id="game_player" style="display:none;">
+          <div class="game_player_header">
+            <button id="game_back">← Back to Games</button>
+            <span id="current_game_title"></span>
+          </div>
+          <iframe id="game_iframe" src="" frameborder="0"></iframe>
+        </div>
+        <div class="games_footer">
+          <button id="games_exit">Exit</button>
+        </div>
+      </div>
+    </div>
 
-		<div id="page_login" class="page">
-			<div id="login_readme" class="card_list">
-				<div class="card">
-					Welcome to BonziWORLD! 
-					<br> <a href="https://discord.gg/JyhbXRsypt">Discord Server</a> <a href="readme.html">README/Help</a>
-				</div>
-			</div>
-			<div id="login_card" style="display:none">
-				<input id="login_name" type="text" placeholder="Nickname">
-				<input id="login_room" type="text" placeholder="Room ID (Optional)">
-				<div id="login_go" onclick="login()" style="cursor:pointer"></div>
-				<div id="login_error" style="display:none"></div>
-			</div>
-			<div id="login_load">loading</div>
-			<div id="login_version">Version 1.0.0</div>
-		</div>
+    <div id="room_info">
+      <span>Room ID - <span class="room_id">???</span></span><br>
+      <span id="room_public">This room is public.</span>
+      <span id="room_private">This room is private.</span><br>
+      <span id="add" style="display: none;">Alt Limit: ???</span>
+      <span id="memcount">Member Count: ???</span>
+      <span id="room_owner"><br>You are the owner of this room.</span><br>
+      <span id="desanitize" style="display: none;">HTML is allowed in this room. Join at your own risk.</span>
+    </div>
 
-		<div id="page_error" class="page" style="display:none">
-			<div id="error_cont" class="message_cont">
-				<img src="img/error/logo.png"><br>
-				<br>
-				<h1>BonziWORLD.exe has encountered an error and needs to close.</h1><br>
-				Nah, but seriously there was an error and you got disconnected from the server. Chances are, your internet just died out for a brief moment or your device went to sleep. Otherwise the server just screwed up.<br>
-				<br>
-				<h3>Please wait 5-10 seconds, once the server is back up you'll automatically rejoin.<br>
-				<br>
-				<a href="#" onclick="window.location.reload()">Reload? (click if you didnt autorejoin after 5-10 seconds)</a><br>
-				<br>
-				Room ID - <span class="room_id">???</span><br>
-			</div>
-		</div>
+    <canvas id="bonzi_canvas" width="100" height="100" style="will-change: transform;"></canvas>
+
+    <table id="chat_bar"><tr>
+      <td id="chat_send">send</td>
+      <td id="chat_message_cont" style="padding:1px;"><input id="chat_message" type="text" placeholder="Enter a message" style="left:-5px;height:66%;position:relative;font-size:17px;top:0px;padding:3px;border-radius:5px;"></td>
+      <td id="chat_tray">
+        <div id="btn_tile" class="tray_btn"></div>
+      </td>
+    </tr></table>
+
+    <div id="page_login" class="page">
+      <div id="login_readme" class="card_list">
+        <div class="card">
+          Welcome to BonziWORLD! 
+          <br> <a href="https://discord.gg/JyhbXRsypt">Discord Server</a> <a href="readme.html">README/Help</a>
+        </div>
+      </div>
+      <div id="login_card" style="display:none">
+        <input id="login_name" type="text" placeholder="Nickname">
+        <input id="login_room" type="text" placeholder="Room ID (Optional)">
+        <div id="login_go" onclick="login()" style="cursor:pointer"></div>
+        <div id="login_error" style="display:none"></div>
+      </div>
+      <div id="login_load">loading</div>
+      <div id="login_version">Version 1.0.0</div>
+    </div>
+
+    <div id="page_error" class="page" style="display:none">
+      <div id="error_cont" class="message_cont">
+        <img src="img/error/logo.png"><br>
+        <br>
+        <h1>BonziWORLD.exe has encountered an error and needs to close.</h1><br>
+        Nah, but seriously there was an error and you got disconnected from the server. Chances are, your internet just died out for a brief moment or your device went to sleep. Otherwise the server just screwed up.<br>
+        <br>
+        <h3>Please wait 5-10 seconds, once the server is back up you'll automatically rejoin.<br>
+        <br>
+        <a href="#" onclick="window.location.reload()">Reload? (click if you didnt autorejoin after 5-10 seconds)</a><br>
+        <br>
+        Room ID - <span class="room_id">???</span><br>
+      </div>
+    </div>
 
                 <div id="page_error105" class="page" style="display:none">
-			<div id="error_cont" class="message_cont">
-				<img src="img/error/logo.png"><br>
-				<br>
-				<h1>Client limit violation</h1><br>
-			        You exceeded the maximum amount of clients allowed, this is to stop the server from being flooded.<br>
-				<br>
-			</div>
-		</div>
+      <div id="error_cont" class="message_cont">
+        <img src="img/error/logo.png"><br>
+        <br>
+        <h1>Client limit violation</h1><br>
+              You exceeded the maximum amount of clients allowed, this is to stop the server from being flooded.<br>
+        <br>
+      </div>
+    </div>
 
                 <div id="page_error106" class="page" style="display:none">
-			<div id="error_cont" class="message_cont">
-				<img src="img/error/logo.png"><br>
-				<br>
-				<h1>Client Slowmode Violation</h1><br>
-			        You have logged in too many times too fast. Please wait for over 10 seconds before trying again faggot. Dont try to start a flood you asshole<br><br>
+      <div id="error_cont" class="message_cont">
+        <img src="img/error/logo.png"><br>
+        <br>
+        <h1>Client Slowmode Violation</h1><br>
+              You have logged in too many times too fast. Please wait for over 10 seconds before trying again faggot. Dont try to start a flood you asshole<br><br>
                     Done waiting? <a href="#" onclick="window.location.reload()">Reload</a>
-				<br>
-			</div>
-		</div>
+        <br>
+      </div>
+    </div>
 
     <div id="page_error104" class="page" style="display:none">
-			<div id="error_cont" class="message_cont">
-				<img src="img/error/logo.png"><br>
-				<br>
-				<h1>BonziWORLD.exe is getting an update</h1><br>
-			        The server is being updated. This may be a bug fix or a new feature or something else. Don't bother me about it cause I'll tell you what it is if it's important.
+      <div id="error_cont" class="message_cont">
+        <img src="img/error/logo.png"><br>
+        <br>
+        <h1>BonziWORLD.exe is getting an update</h1><br>
+              The server is being updated. This may be a bug fix or a new feature or something else. Don't bother me about it cause I'll tell you what it is if it's important.
                     <br><br>You don't need to reload. Once the server is back up, you'll join automatically. Wait 5-10 seconds
-				<br><br>
-				<a href="#" onclick="window.location.reload()">Reload?</a>
-			</div>
-		</div>
+        <br><br>
+        <a href="#" onclick="window.location.reload()">Reload?</a>
+      </div>
+    </div>
 
      <div id="quote" class="page" style="display:none">
-			<div class="message_cont">
-				<br>
-				<h1 id="replyto">Reply to ?</h1><br>
-			      <form action="javascript:quote()">
+      <div class="message_cont">
+        <br>
+        <h1 id="replyto">Reply to ?</h1><br>
+            <form action="javascript:quote()">
               <input id="replyvalue" style="width:100%">
               <input type="hidden" value="" id="guid"><br><br>
               <input type="submit" value="Reply">
             </form>
-			</div>
-		</div>
+      </div>
+    </div>
 
      <div id="rabbi" class="page" style="display:none">
-			<div class="message_cont">
-				<img src="img/rabbi.png"><br>
-				<br>
-				<h1> You're a RABBI </h1><br>
+      <div class="message_cont">
+        <img src="img/rabbi.png"><br>
+        <br>
+        <h1> You're a RABBI </h1><br>
                 <div style="line-height: 1.2;">
                 <li>You can use /announce and /poll like regular blessed users!</li>
                 <li>Right click a user to use <b>Special Rabbi Commands</b>!</li>
@@ -338,132 +409,132 @@ background-color: #403060;
                 <li>Do <b>/rabbi</b> to change to your <b>Rabbi color!</b> (with the tag too)</li>
                 </div><br><br>
                 <button onclick="$('#rabbi').hide()">Close Message</button>
-			</div>
-		</div>
+      </div>
+    </div>
 
 
 
      <div id="dm" style="display:none">
-			<div id="error_cont" class="message_cont">
-				<br>
-				<h1 id="dmto">Message ?</h1><br>
-			      <form action="javascript:dm()">
+      <div id="error_cont" class="message_cont">
+        <br>
+        <h1 id="dmto">Message ?</h1><br>
+            <form action="javascript:dm()">
               <input id="dmvalue" style="width:100%">
               <input type="hidden" value="" id="dmguid"><br><br>
               <input type="submit" value="Reply">
             </form>
-			</div>
-		</div>
+      </div>
+    </div>
 
              <div id="announcement" class="page" style="display:none">
-			<div class="message_cont">
-				<h2 id="ancon">FROM?</h2><br>
+      <div class="message_cont">
+        <h2 id="ancon">FROM?</h2><br>
                 <div id="ancontent"></div><br>
                 <button onclick="$('#announcement').hide()">Hide</button>
-			</div>
-		</div>
+      </div>
+    </div>
 
              <div id="motd" class="page" style="display:none">
-			<div class="message_cont">
+      <div class="message_cont">
                 <div id="motdcontent"></div><br>
                 <h5>(You will only see this bubble again if there's a new different message)</h5>
                 <button onclick="$('#motd').hide()">Ok</button>
-			</div>
-		</div>
+      </div>
+    </div>
 
-		<div id="page_kick" class="page" style="display:none">
-			<div id="kick_cont" class="message_cont">
-				<img src="img/ban/logo.png"><br>
-				<br>
-				<h1>You got kicked!</h1><br>
-				<br>
-				<b>Why?</b> You probably pissed off the owner, but you can rejoin as there are no rules!</b><br>
-			</div>
-		</div>
+    <div id="page_kick" class="page" style="display:none">
+      <div id="kick_cont" class="message_cont">
+        <img src="img/ban/logo.png"><br>
+        <br>
+        <h1>You got kicked!</h1><br>
+        <br>
+        <b>Why?</b> You probably pissed off the owner, but you can rejoin as there are no rules!</b><br>
+      </div>
+    </div>
 
-		<div id="pollcont" class="page" style="display:none">
-			<div id="error_cont" class="message_cont">
-				<img src="img/ban/logo.png"><br>
-				<br>
-				<h1 id="pollname"></h1><br>
+    <div id="pollcont" class="page" style="display:none">
+      <div id="error_cont" class="message_cont">
+        <img src="img/ban/logo.png"><br>
+        <br>
+        <h1 id="pollname"></h1><br>
                 <div id="pollyes" onclick="window._bonziSocket.emit('vote', true)">Yes</div><br>
                 <div id="pollno" onclick="window._bonziSocket.emit('vote', false)">No</div><br>
                 <h3 id="votecount">0 Votes</h3><br>
                 <button onclick="$('#pollcont').hide()">Hide Poll</button>
-			</div>
-		</div>
+      </div>
+    </div>
 
-		<div id="scarycont" class="page" style="display:none">
-			<div id="error_cont" class="message_cont">
-				<img src="img/ban/logo.png"><br>
+    <div id="scarycont" class="page" style="display:none">
+      <div id="error_cont" class="message_cont">
+        <img src="img/ban/logo.png"><br>
                 <h1>We see you</h1>
                 We see you. Don't move until this message goes away.
-			</div>
-		</div>
+      </div>
+    </div>
 
-		<div id="shop" class="page" style="display:none">
-			<div class="message_cont">
-				<h1>BonziCoin Shop</h1>
-				<div id="shop_balance">Your Balance: <span id="balance_amount">0</span> coins</div>
-				<div id="shop_items"></div>
-				<button onclick="$('#shop').hide()">Close Shop</button>
-			</div>
-		</div>
+    <div id="shop" class="page" style="display:none">
+      <div class="message_cont">
+        <h1>BonziCoin Shop</h1>
+        <div id="shop_balance">Your Balance: <span id="balance_amount">0</span> coins</div>
+        <div id="shop_items"></div>
+        <button onclick="$('#shop').hide()">Close Shop</button>
+      </div>
+    </div>
 
-		<div id="page_ban" class="page" style="display:none">
-			<div id="ban_cont" class="message_cont">
-				<img src="img/ban/logo.png"><br>
-				<br>
-				<h1>You got banned!</h1><br>
-				<br>
-				<b>Why?</b><br>
-				<span id="ban_reason">You have been banned from the server.</span><br>
-				<br>
-				<b>Who banned you?</b><br>
-				<span id="ban_authority">An administrator</span><br>
-				<br>
-				<b>When is it over?</b><br>
-				<span id="ban_duration">Until server restart</span><br>
-				<br>
-				<div id="ban_appeal" style="display:none">
-					<b>Note:</b><br>
-					Temporary bans will automatically expire after the duration.<br>
-					The server may restart at any time which will clear all bans.<br>
-				</div>
-			</div>
-		</div>
+    <div id="page_ban" class="page" style="display:none">
+      <div id="ban_cont" class="message_cont">
+        <img src="img/ban/logo.png"><br>
+        <br>
+        <h1>You got banned!</h1><br>
+        <br>
+        <b>Why?</b><br>
+        <span id="ban_reason">You have been banned from the server.</span><br>
+        <br>
+        <b>Who banned you?</b><br>
+        <span id="ban_authority">An administrator</span><br>
+        <br>
+        <b>When is it over?</b><br>
+        <span id="ban_duration">Until server restart</span><br>
+        <br>
+        <div id="ban_appeal" style="display:none">
+          <b>Note:</b><br>
+          Temporary bans will automatically expire after the duration.<br>
+          The server may restart at any time which will clear all bans.<br>
+        </div>
+      </div>
+    </div>
 
-		<div id="page_unsupp" class="page" style="display:none">
-			<div id="unsupp_cont" class="message_cont">
-				<img src="img/error/logo.png"><br>
-				<br>
-				<h1>BonziWORLD cannot run on this platform.</h1><br>
-				Unfortunately, BonziWORLD cannot run in this browser for the following reasons:<br>
-				<ul id="unsupp_reasons"></ul>
-				You can try to download a BonziWORLD app that works on your device, or update your browser.
-				<div id="login_apps" class="app_showcase"></div>
-			</div>
-		</div>
+    <div id="page_unsupp" class="page" style="display:none">
+      <div id="unsupp_cont" class="message_cont">
+        <img src="img/error/logo.png"><br>
+        <br>
+        <h1>BonziWORLD cannot run on this platform.</h1><br>
+        Unfortunately, BonziWORLD cannot run in this browser for the following reasons:<br>
+        <ul id="unsupp_reasons"></ul>
+        You can try to download a BonziWORLD app that works on your device, or update your browser.
+        <div id="login_apps" class="app_showcase"></div>
+      </div>
+    </div>
 
       <div id="page_error105" class="page" style="display:none">
-			<div id="error_cont" class="message_cont">
-				<img src="img/error/logo.png"><br>
-				<br>
-				<h1>BonziWORLD.exe doesnt want to accept your connection.(105)</h1><br>
-			        there are too many clients on your ip, the max limit is <b id="limitip">unknown</b><br>
-				<br>
-				sorry but you exceeded the alt limit for this IP, this is to stop the server from being flooded.<br>
-				<br>
-			</div>
-		</div>
-	</div>
+      <div id="error_cont" class="message_cont">
+        <img src="img/error/logo.png"><br>
+        <br>
+        <h1>BonziWORLD.exe doesnt want to accept your connection.(105)</h1><br>
+              there are too many clients on your ip, the max limit is <b id="limitip">unknown</b><br>
+        <br>
+        sorry but you exceeded the alt limit for this IP, this is to stop the server from being flooded.<br>
+        <br>
+      </div>
+    </div>
+  </div>
 
-	<div id="titlebar">
-		<div id="minimize"></div>
-		<div id="maximize"></div>
-		<div id="close"></div>
-	</div>
+  <div id="titlebar">
+    <div id="minimize"></div>
+    <div id="maximize"></div>
+    <div id="close"></div>
+  </div>
 
-	<ad></ad>
+  <ad></ad>
 </body>
 </html>

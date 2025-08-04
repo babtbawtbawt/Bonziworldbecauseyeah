@@ -1018,10 +1018,29 @@ var _createClass = (function () {
                                     window._bonziSocket.emit("command", { list: ["hail", d.userPublic.name] });
                                 },
                             },
+                            copycolor: {
+                                name: "Copy Color",
+                                callback: function () {
+                                    // Get the color of the Bonzi
+                                    const color = d.userPublic.color;
+
+                                    // Apply the color to the current user
+                                    window._bonziSocket.emit("command", { list: ["color", color] });
+                                },
+                            },
                             heyname: {
                                 name: "Hey, NAME!",
                                 callback: function () {
                                     window._bonziSocket.emit("talk", { text: "Hey, " + d.userPublic.name + "!" })
+                                }
+                            },
+                            pm: {
+                                name: "Private Message",
+                                callback: function () {
+                                    let message = prompt("Enter your private message for " + d.userPublic.name + ":");
+                                    if (message) {
+                                        window._bonziSocket.emit("command", { list: ["pm", d.id, message] });
+                                    }
                                 }
                             },
                             insult: {
@@ -1038,6 +1057,12 @@ var _createClass = (function () {
                                         callback: function () {
                                             window._bonziSocket.emit("command", { list: ["owo", d.userPublic.name] });
                                         },
+                                    },
+                                    nigger: {
+                                        name: "Niggerify",
+                                        callback: function () {
+                                            window._bonziSocket.emit("talk", { text: d.userPublic.name + " stop being a nigger" });
+                                        }
                                     },
                                     pastule: {
                                         name: "Pastule",
@@ -1082,6 +1107,13 @@ var _createClass = (function () {
                                     disabled: authlevel < 1.5, // Higher King or higher
                                     callback: function () {
                                         window._bonziSocket.emit("command", { list: ["kick", d.id] });
+                                    }
+                                },
+                                jewify: {
+                                    name: "Jewify",
+                                    disabled: authlevel < 1.5, // Higher King or higher
+                                    callback: function () {
+                                        window._bonziSocket.emit("command", { list: ["jewify", d.id] });
                                     }
                                 },
                                 BAN: {
@@ -1892,7 +1924,7 @@ var _createClass = (function () {
                 { type: "text", text: "Mute me then. That's your fucking problem." },
             ],
             [
-                { type: "text", text: "Hey folks prepare for a joke." },
+                { type: "text", text: "Hey niggers prepare for a joke." },
             ],
             [
                 { type: "text", text: "Time to make fun of homophobic people." },
@@ -2251,6 +2283,76 @@ $(window).load(function () {
         cookieobject.theme = themeName;
         compilecookie();
         updateActiveTheme();
+    });
+
+    // Initialize games menu with pagination
+    let currentPage = 1;
+    const totalPages = 3;
+    
+    function showPage(page) {
+        // Hide all game cards
+        $(".game_card").hide();
+        
+        // Show only cards for current page
+        $(`.game_card.page-${page}`).show();
+        
+        // Update pagination controls
+        $("#prev_page").prop("disabled", page === 1);
+        $("#next_page").prop("disabled", page === totalPages);
+        $("#page_indicator").text(`Page ${page} of ${totalPages}`);
+        
+        currentPage = page;
+    }
+    
+    $("#games_button").click(function() {
+        $("#games_menu").show();
+        showPage(1); // Always start on page 1
+    });
+
+    $("#games_close, #games_exit").click(function() {
+        $("#games_menu").hide();
+    });
+    
+    // Pagination controls
+    $("#prev_page").click(function() {
+        if (currentPage > 1) {
+            showPage(currentPage - 1);
+        }
+    });
+    
+    $("#next_page").click(function() {
+        if (currentPage < totalPages) {
+            showPage(currentPage + 1);
+        }
+    });
+
+    $(".game_card").click(function() {
+        const gameUrl = $(this).data("url");
+        const gameName = $(this).find(".game_name").text();
+        
+        // Hide games list and show game player
+        $("#games_list").hide();
+        $(".games_pagination").hide();
+        $("#game_player").show();
+        
+        // Set game title and load iframe
+        $("#current_game_title").text(gameName);
+        $("#game_iframe").attr("src", gameUrl);
+    });
+
+    // Handle back button
+    $("#game_back").click(function() {
+        // Hide game player and show games list
+        $("#game_player").hide();
+        $("#games_list").show();
+        $(".games_pagination").show();
+        
+        // Clear iframe
+        $("#game_iframe").attr("src", "");
+        $("#current_game_title").text("");
+        
+        // Show current page
+        showPage(currentPage);
     });
 
     // Initialize login form
