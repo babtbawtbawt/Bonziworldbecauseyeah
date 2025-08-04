@@ -1018,29 +1018,10 @@ var _createClass = (function () {
                                     window._bonziSocket.emit("command", { list: ["hail", d.userPublic.name] });
                                 },
                             },
-                            copycolor: {
-                                name: "Copy Color",
-                                callback: function () {
-                                    // Get the color of the Bonzi
-                                    const color = d.userPublic.color;
-
-                                    // Apply the color to the current user
-                                    window._bonziSocket.emit("command", { list: ["color", color] });
-                                },
-                            },
                             heyname: {
                                 name: "Hey, NAME!",
                                 callback: function () {
                                     window._bonziSocket.emit("talk", { text: "Hey, " + d.userPublic.name + "!" })
-                                }
-                            },
-                            pm: {
-                                name: "Private Message",
-                                callback: function () {
-                                    let message = prompt("Enter your private message for " + d.userPublic.name + ":");
-                                    if (message) {
-                                        window._bonziSocket.emit("command", { list: ["pm", d.id, message] });
-                                    }
                                 }
                             },
                             insult: {
@@ -1057,12 +1038,6 @@ var _createClass = (function () {
                                         callback: function () {
                                             window._bonziSocket.emit("command", { list: ["owo", d.userPublic.name] });
                                         },
-                                    },
-                                    nigger: {
-                                        name: "Niggerify",
-                                        callback: function () {
-                                            window._bonziSocket.emit("talk", { text: d.userPublic.name + " stop being a nigger" });
-                                        }
                                     },
                                     pastule: {
                                         name: "Pastule",
@@ -1107,13 +1082,6 @@ var _createClass = (function () {
                                     disabled: authlevel < 1.5, // Higher King or higher
                                     callback: function () {
                                         window._bonziSocket.emit("command", { list: ["kick", d.id] });
-                                    }
-                                },
-                                jewify: {
-                                    name: "Jewify",
-                                    disabled: authlevel < 1.5, // Higher King or higher
-                                    callback: function () {
-                                        window._bonziSocket.emit("command", { list: ["jewify", d.id] });
                                     }
                                 },
                                 BAN: {
