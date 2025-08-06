@@ -706,11 +706,8 @@ class user {
                 this.room.handleVote(this, vote);
             }
         });
-                if (this.level < KING_LEVEL) {
-                    this.socket.emit("alert", "You must be a King or Pope to use this command!");
-                    return;
-                }
-                this.room.emit("bonzitv", {
+        
+                this.room.emit("setbonzitvshowhaha2025", {
                     guid: this.public.guid,
                     vid: videoId
                 });
