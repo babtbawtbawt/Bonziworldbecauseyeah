@@ -711,7 +711,7 @@ class user {
                     guid: this.public.guid,
                     vid: videoId
                 });
-            }
+            });
             
         // Add statlock check to color command
         this.socket.on("useredit", data => {
