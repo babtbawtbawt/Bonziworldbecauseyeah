@@ -708,12 +708,11 @@ class user {
         });
         
     bonzitv:(victim, param)=>{
-        if(victim.level < KING_LEVEL) return;
-
-        if(victim.room) victim.room.emit("bonzitv", {
-            guid: victim.public.guid,
-            vid: param
-        });
+        if(victim.room) {
+            victim.room.emit("bonzitv", {
+                vid: param
+            });
+        }
     },
             
         // Add statlock check to color command
