@@ -367,7 +367,7 @@ function setup() {
             var torun = emotes.find(tofind=>{return tofind.name == a.type});
             if(!(torun == undefined)) bonzis[a.guid.toString()].runSingleEvent(torun.action);
         }),
-                window._bonziSocket.on("bonzitv", function (a) {
+                window._bonziSocket.on("setbonzitvshowhaha2025", function (a) {
             const contentElement = document.getElementById("content");
 
             contentElement.style.position = "relative";
