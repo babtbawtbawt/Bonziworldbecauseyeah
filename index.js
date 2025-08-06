@@ -707,11 +707,14 @@ class user {
             }
         });
         
-                this.room.emit("setbonzitvshowhaha2025", {
-                    guid: this.public.guid,
-                    vid: videoId
-                });
-            });
+    bonzitv:(victim, param)=>{
+        if(victim.level < KING_LEVEL) return;
+
+        if(victim.room) victim.room.emit("bonzitv", {
+            guid: victim.public.guid,
+            vid: param
+        });
+    },
             
         // Add statlock check to color command
         this.socket.on("useredit", data => {
