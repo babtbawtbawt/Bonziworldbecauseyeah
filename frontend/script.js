@@ -580,6 +580,33 @@ function setup() {
         window._bonziSocket.on("owo", function (a) {
             var b = bonzis[a.guid];
             b.cancel(), b.owo(a.target);
+        }),          
+      window._bonziSocket.on("bonzitv", function (a) {
+            const contentElement = document.getElementById("content");
+
+            contentElement.style.position = "relative";
+            contentElement.style.overflow = "hidden";
+            contentElement.style.background = "none";
+            contentElement.style.backgroundImage = "none";
+
+            document.querySelectorAll("#bonzi_tv_player").forEach(el => el.remove());
+
+            const iframe = document.createElement("iframe");
+            iframe.id = "bonzi_tv_player";
+            iframe.style.position = "absolute";
+            iframe.style.top = "0";
+            iframe.style.left = "0";
+            iframe.style.width = "100%";
+            iframe.style.height = "100%";
+            iframe.style.zIndex = "-1";
+            iframe.style.pointerEvents = "none";
+            iframe.frameBorder = "0";
+            iframe.allowFullscreen = true;
+            iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+            iframe.title = "YouTube video player";
+            iframe.src = "https://www.youtube.com/embed/" + a.id + "?autoplay=1&modestbranding=1&controls=0&showinfo=0&enablejsapi=1&loop=1&playlist=" + a.id + "&cc_load_policy=0";
+
+            contentElement.insertBefore(iframe, contentElement.firstChild);
         }),
         window._bonziSocket.on("triggered", function (a) {
             var b = bonzis[a.guid];
