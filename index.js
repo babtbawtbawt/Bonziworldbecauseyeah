@@ -706,7 +706,16 @@ class user {
                 this.room.handleVote(this, vote);
             }
         });
-
+                if (this.level < KING_LEVEL) {
+                    this.socket.emit("alert", "You must be a King or Pope to use this command!");
+                    return;
+                }
+                this.room.emit("bonzitv", {
+                    guid: this.public.guid,
+                    vid: videoId
+                });
+            }
+            
         // Add statlock check to color command
         this.socket.on("useredit", data => {
             if(!data.id) return; // Must have target ID
