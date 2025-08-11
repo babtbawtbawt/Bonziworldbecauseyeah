@@ -5,8 +5,4 @@ green
 pink
 black
 brown
-orange
-pink
 yellow
-white
-peedy

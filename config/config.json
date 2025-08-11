@@ -1,22 +1,11 @@
 {
   "port":80,
-  "godword":"onlyfoolsrushinasshole",
-  "kingword":"bwnzikwnzi",
-  "higher_kingword":"bwnzikwnzi",
-  "altlimit": 5,
+  "godword":"guggisisadick",
+  "nasrgodword":"GROOVER!",
+  "ahmadgodword":"AhmadGOD28###",
+  "ghaydaword":"Asterick Lottery",
+  "altlimit": 4,
   "slowmode": 1000,
   "namelimit": 25,
-  "charlimit": 2500,
-  "whitelisted_image_hosts": [
-    "i.imgbb.com",
-    "files.catbox.moe",
-    "litter.catbox.moe",
-    "catbox.moe",
-    "i.imgflip.com"
-  ],
-  "version": "1.0.0 BETA",
-  "room_defaults":{
-    "public":true,
-    "owner":"Xeno789"
-  }
+  "charlimit": 2500
 }
